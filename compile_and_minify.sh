@@ -17,13 +17,6 @@ echo 'compiling js -> js'
 # advanced is only about 1k better than simple and adds complixity. skip it.
 COMPILATION_LEVEL=SIMPLE_OPTIMIZATIONS
 cat {matching,scoring,adjacency_graphs,frequency_lists,init}.js  | function_wrap > compiled.js
-
-java -jar tools/closure.jar --compilation_level $COMPILATION_LEVEL --js matching.coffee --js_output_file matching.js
-java -jar tools/closure.jar --compilation_level $COMPILATION_LEVEL --js scoring.coffee --js_output_file scoring.js
-java -jar tools/closure.jar --compilation_level $COMPILATION_LEVEL --js init.coffee --js_output_file init.js
-
-
-
 java -jar tools/closure.jar --compilation_level $COMPILATION_LEVEL --js compiled.js --js_output_file zxcvbn.js
 java -jar tools/closure.jar --compilation_level $COMPILATION_LEVEL --js async.js    --js_output_file zxcvbn-async.js
 rm -f compiled.js
