@@ -62,7 +62,7 @@ namespace zxcvbn.net
          
 
 
-            // Engine.SetGlobalValue("password", password);
+            Engine.SetGlobalValue("password", password);
 
             var q = Engine.GetGlobalValue<string>("password");
 
